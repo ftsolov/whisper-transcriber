@@ -1,11 +1,12 @@
 import whisper
 import inquirer
 import os
-from colorama import Fore, Back, Style
+from colorama import Fore
 
 # get all files in audio folder
 audio_file_list = os.listdir('audio')
 
+# early return if no audio files found
 if len(audio_file_list) == 0:
     print(Fore.RED + "Error: No audio files found in /audio folder.")
     quit()
@@ -54,6 +55,7 @@ print("Transcribed text: " + result["text"])
 formatted_filename_input = answers['user_filename_input'].lower().replace(" ", "_")
 text_file_path = f"transcriptions/{formatted_filename_input}.txt"
 
+# save transcription to .txt file
 with open(text_file_path, "w+") as f:
     f.write(result["text"])
 
