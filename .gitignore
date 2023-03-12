@@ -1,5 +1,7 @@
 /venv
-/audio/*
+audio/*
+!audio/.gitkeep
 /.idea/*
 .idea
-/transcriptions/*
+transcriptions/*
+!transcriptions/.gitkeep
